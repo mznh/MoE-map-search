@@ -1,2 +1,9 @@
 # MoE-map-search
-MoEの古びた地図の番号をもらうと詳細を返すAPIにする予定
+国産老舗MMO RPG「[Master of Epic](https://moepic.com/)」のdropアイテム「古びた地図」の詳細をすばやく検索するwebアプリです。
+
+データは[MoeWiki](http://moewiki.usamimi.info/)をスクレイピングすることで取得しています。
+
+## How to Use
+Herokuにデプロイしたので、そちらをどうぞ。
+
+https://moe-map-searcher.herokuapp.com/
