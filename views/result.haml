@@ -10,4 +10,21 @@
     %form{action:"/",method:"post"}
       %input{type:"text",name:"number"}
       %input{type:"submit",value:"検索"}
-    %p #{$res.to_s}
+
+    - if $res.empty? then
+      %p 古びた地図#{$num}番は存在しません
+    - else 
+      %p<
+        古びた地図 
+        %b<>
+          #{$m["num"]}
+        番は、ランク 
+        %b<>
+          #{$m["rank"]} 
+        の 
+        %b<>
+          #{$m["area"]} 
+        で、必要解読スキルは 
+        %b<>
+          #{$m["skill"]} 
+        です。
