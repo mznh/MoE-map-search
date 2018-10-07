@@ -15,6 +15,6 @@ get '/'do
 end
 
 post '/'do
-  n = params['number']
+  n = params['number'].to_i
   redirect "/?num=#{n}"
 end
