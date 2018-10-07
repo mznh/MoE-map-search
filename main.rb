@@ -15,6 +15,6 @@ get '/'do
 end
 
 post '/'do
-  p params['number']
-  redirect "/?num=10"
+  n = params['number']
+  redirect "/?num=#{$n}"
 end
