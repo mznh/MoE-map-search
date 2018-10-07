@@ -11,9 +11,10 @@ end
 
 get '/'do
   $res = $map_searcher.search_num params['num']
-  if $res.empty? then
-    "not found"
-  else
-    haml :result
-  end
+  haml :result
+end
+
+post '/'do
+  p params['number']
+  redirect "/?num=10"
 end
