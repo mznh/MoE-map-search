@@ -1,34 +1,39 @@
-!!!
+!!! 5
 %html
   %head{lang:"ja"}
     %title MoE 古びた地図検索機
+    %meta{ :content => "", :name => "MoE map searcher" }
+    %meta{ :content => "", :name => "mznh" }
     %meta{charset:"utf-8"}
     %meta{name:"viewport",content:"width=device-width,initial-scale=1"}
     %meta{"http-equiv":"X-UA-Compatible",CONTENT:"IE=EmulateIE9"}
     %link{rel:"stylesheet",type:"text/css",href:"./style.css"}
   %body
-    %h1 MoE 古びた地図検索機
-    %form{action:"/",method:"post"}
-      %input{type:"text",name:"number"}
-      %input{type:"submit",value:"検索"}
-
-    - if $res.empty? then
-      %p 古びた地図#{$num}番は存在しません
-    - else 
-      %p<
-        古びた地図 
-        %b<>
-          #{$m["num"]}
-        番は、ランク 
-        %b<>
-          #{$m["rank"]} 
-        の 
-        %b<>
-          #{$m["area"]} 
-        で、必要解読スキルは 
-        %b<>
-          #{$m["skill"]} 
-        です。
+    #header
+      %h1 MoE 古びた地図検索機
+    #main
+      #form_space
+        %form{action:"/",method:"post"}
+          %input{type:"tel",name:"number"}
+          %input{type:"submit",value:"検索"}
+      #result_space
+        - if $res.empty? then
+          %p 古びた地図#{$num}番は存在しません
+        - else 
+          %p<
+            古びた地図 
+            %b<>
+              #{$m["num"]}
+            番は、ランク 
+            %b<>
+              #{$m["rank"]} 
+            の 
+            %b<>
+              #{$m["area"]} 
+            で、必要解読スキルは 
+            %b<>
+              #{$m["skill"]} 
+            です。
     #footer
       #about_me
         %table#link<

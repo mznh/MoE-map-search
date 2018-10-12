@@ -4,13 +4,13 @@
 /*============================================
 全般的なスタイル
 ============================================*/
-* {
+*{
   margin:0px; padding:0px;
   line-height:1.5;  
   color:#000000;  
   font-family:'arial','sans-serif';
 } 
-body {
+body{
   background-color:#FFFFFF;  /*ページ全体の背景色*/
   margin:7px; 
   padding:7px;   
@@ -53,6 +53,10 @@ img#pic:active{
   transform: translateY(3px);
   transition: 0.02s;
 }
+div#header{
+  margin:7px;  
+  padding:7px;  
+}
 div#footer{
   position: fixed;
   bottom: 0;
@@ -66,15 +70,15 @@ div#about_me{
   text-decoration:none;
   text-align:right;  
 }
-div#credits{
-  text-decoration:none;
-  text-align:right;
-  font-size:10pt;
+div#form_space{
+  margin:7px; 
+  padding:7px;   
 }
-p#credit{
-  display:inline-block;
-  text-align:left;  
+div#result_space{
+  margin:7px; 
+  padding:7px;
 }
+
 table#link{
   display: inline-block;
   text-align:left;
