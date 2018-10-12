@@ -11,11 +11,15 @@ class TreasureMapList
   def initialize   
     url = "http://moewiki.usamimi.info/index.php?%A5%B9%A5%AD%A5%EB%2F%B4%F0%CB%DC%2F%B2%F2%C6%C9%2F%B8%C5%A4%D3%A4%BF%C3%CF%BF%DE"
     charset = nil
-    html = open(url) do |f|
-      charset = f.charset
-      f.read
+    begin
+      html = open(url) do |f|
+        charset = f.charset
+        f.read
+      end
+      @doc = Nokogiri::HTML.parse(html, nil, charset)
+    rescue => er
+      raise "MoE-Wiki is down??"
     end
-    @doc = Nokogiri::HTML.parse(html, nil, charset)
 # タイトルを表示
     p @doc.title
     tables = @doc.xpath('//div[@class="ie5"]/table')
@@ -42,7 +46,3 @@ class TreasureMapList
   end
 end
 
-
-
-t = TreasureMapList.new()
-t.search_num 10

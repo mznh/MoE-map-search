@@ -5,7 +5,12 @@ require 'haml'
 require './search_map.rb'
 
 configure do
-  $map_searcher = TreasureMapList.new()
+  $err_flag = false
+  begin
+    $map_searcher = TreasureMapList.new()
+  rescue => er
+    $err_flag = true
+  end
 end
 
 helpers do
@@ -28,7 +33,11 @@ get '/'do
   unless $res.empty? then
     $m =make_res_hash $res
   end
-  haml :result
+  if $err_flag then
+    haml :error
+  else 
+    haml :result
+  end
 end
 
 post '/'do
