@@ -13,14 +13,14 @@ class TreasureMapList
     charset = nil
     begin
       p "Get wiki data"
-      html = open(url,{read_timeout:op.timeout}) do |f|
+      html = open(url,{read_timeout:op[:timeout]}) do |f|
         charset = f.charset
         f.read
       end
       @doc = Nokogiri::HTML.parse(html, nil, charset)
     rescue => er
       p "MoE-Wiki is down??"
-      raise "MoE-Wiki is down??"
+      raise er
     end
 # タイトルを表示
     p @doc.title

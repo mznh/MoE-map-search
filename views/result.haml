@@ -17,7 +17,9 @@
           %input{type:"tel",name:"number"}
           %input{type:"submit",value:"検索"}
       #result_space
-        - if $res.empty? then
+        - if $num.nil? then
+          %p 地図の番号を入力してください。 
+        - elsif $res.empty? then
           %p 古びた地図#{$num}番は存在しません
         - else 
           %p<

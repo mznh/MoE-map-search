@@ -32,12 +32,11 @@ get '/'do
     $err_flag = false
     begin
       p "get wiki data"
-      $map_searcher = TreasureMapList.new({timeout:0.5})
+      $map_searcher = TreasureMapList.new({timeout:0.4})
     rescue => er
-    p "erre!!"
-    $err_flag = true
-  end
-
+      p er
+      $err_flag = true
+    end
     haml :error
   else 
     $num = params['num']
@@ -50,6 +49,11 @@ get '/'do
 end
 
 post '/'do
-  n = params['number'].to_i
-  redirect "/?num=#{n}"
+  p params['number']
+  if params['number'] == "" then
+    redirect "/"
+  else
+    n = params['number'].to_i
+    redirect "/?num=#{n}"
+  end
 end
