@@ -8,17 +8,18 @@ require "nokogiri"
 
 class TreasureMapList 
 # スクレイピングするURL
-  def initialize   
+  def initialize(op)
     url = "http://moewiki.usamimi.info/index.php?%A5%B9%A5%AD%A5%EB%2F%B4%F0%CB%DC%2F%B2%F2%C6%C9%2F%B8%C5%A4%D3%A4%BF%C3%CF%BF%DE"
     charset = nil
     begin
-      p "tanomu"
-      html = open(url,{read_timeout:2}) do |f|
+      p "Get wiki data"
+      html = open(url,{read_timeout:op.timeout}) do |f|
         charset = f.charset
         f.read
       end
       @doc = Nokogiri::HTML.parse(html, nil, charset)
     rescue => er
+      p "MoE-Wiki is down??"
       raise "MoE-Wiki is down??"
     end
 # タイトルを表示
