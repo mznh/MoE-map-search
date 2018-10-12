@@ -7,8 +7,10 @@ require './search_map.rb'
 configure do
   $err_flag = false
   begin
+    p "get wiki data"
     $map_searcher = TreasureMapList.new()
   rescue => er
+    p "erre!!"
     $err_flag = true
   end
 end
@@ -28,14 +30,14 @@ helpers do
 end
 
 get '/'do
-  $num = params['num']
-  $res = $map_searcher.search_num $num
-  unless $res.empty? then
-    $m =make_res_hash $res
-  end
   if $err_flag then
     haml :error
   else 
+    $num = params['num']
+    $res = $map_searcher.search_num $num
+    unless $res.empty? then
+      $m =make_res_hash $res
+    end
     haml :result
   end
 end

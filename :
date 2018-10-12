@@ -13,7 +13,8 @@ class TreasureMapList
     charset = nil
     begin
       p "tanomu"
-      html = open(url,{read_timeout:2}) do |f|
+open(url)
+      html = open(url) do |f|
         charset = f.charset
         f.read
       end
