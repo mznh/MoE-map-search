@@ -31,7 +31,7 @@ div#title {
   text-align:center;
 }
 div#text{
-  font-size:14pt;
+  font-size:14px;
   padding:10px;   
 }
 a#button{
@@ -76,7 +76,7 @@ div#credits{
   padding:7px;   
   display:block;
   text-decoration:none;
-  text-align:right;  
+  text-align:left;
 }
 div#form_space{
   margin:7px; 
@@ -89,6 +89,10 @@ div#answer_space{
 div#result_space{
   margin:7px;
   padding:7px;
+}
+p.notes{
+  font-size:8px;
+  text-align:left;
 }
 
 table#link{
