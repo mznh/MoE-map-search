@@ -44,10 +44,8 @@
         %form{action:"/answer",method:"post"}
           %select{name:"answer_area"}
             - $area_list.each_with_index do |an,idx|
-              - if idx == 17 then
-                %option{value:"#{idx}",selected:""}
-                  #{an}
-              - else
+            - if idx == 17 then
+            - else
                 %option{value:"#{idx}"}
                   #{an}
           %input{type:"tel",name:"answer_number",placeholder:"01"}
