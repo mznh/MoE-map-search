@@ -59,7 +59,7 @@ get '/'do
     if params['type'] == "a"
       begin
         name = $map_searcher.get_area_list[params['area'].to_i]
-        if params["anum"].length >5 then
+        if not params["anum"].nil? and params["anum"].length >5 then
           raise "The num of digits is out of range."
         end
         num = params['anum'].to_i
@@ -73,7 +73,7 @@ get '/'do
         #現状はスルー
       end
     else 
-      if params["num"].length >5 then
+      if not params["num"].nil? and params["num"].length >5 then
         ##?num=hoge でありえない値を入れられたときの対処
         #現状はスルー
       else
