@@ -57,13 +57,18 @@ get '/'do
     $res = []
     $ans = []
     if params['type'] == "a"
-      name = $map_searcher.get_area_list[params['area'].to_i]
-      num = params['anum'].to_i
-      p name,num
-      $ans = $map_searcher.search_ans name, num
-      $anum = name+sprintf("%02d",num)
-      unless $ans.empty? then
-        $m =make_ans_hash $ans
+      begin
+        name = $map_searcher.get_area_list[params['area'].to_i]
+        num = params['anum'].to_i
+        p name,num
+        $ans = $map_searcher.search_ans name, num
+        $anum = name+sprintf("%02d",num)
+        unless $ans.empty? then
+          $m =make_ans_hash $ans
+        end
+      rescue
+        ##?area=hoge でありえない値を入れられたときの対処
+        #現状はスルー
       end
     else 
       $num = params['num']
