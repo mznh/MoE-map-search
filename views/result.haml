@@ -13,6 +13,7 @@
       %h1 MoE 古びた地図検索機
     #main
       #form_space
+        %h3 解読前
         %form{action:"/",method:"post"}
           %input{type:"tel",name:"number"}
           %input{type:"submit",value:"検索"}
@@ -37,6 +38,7 @@
               #{$m["skill"]} 
             です。
       #form_space
+        %h3 解読済
         %form{action:"/answer",method:"post"}
           %select{name:"answer_area"}
             - $area_list.each_with_index do |an,idx|
