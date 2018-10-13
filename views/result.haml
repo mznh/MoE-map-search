@@ -36,7 +36,42 @@
             %b<>
               #{$m["skill"]} 
             です。
+      #form_space
+        %form{action:"/answer",method:"post"}
+          %select{name:"answer_area"}
+            - $area_list.each_with_index do |an,idx|
+              %option{value:"#{idx}"}
+                #{an}
+          %input{type:"tel",name:"answer_number"}
+          %input{type:"submit",value:"検索"}
+      #answer_space
+        - if $anum.nil? then
+          %p 地図の番号を入力してください。 
+        - elsif $ans.empty? then
+          %p 古びた地図#{$anum}番は存在しません
+        - else 
+          %p<
+            古びた地図 
+            %b<>
+              #{$m["area_num"]}
+          %p<
+            座標: 
+            %b<>
+              #{$m["pos"]} 
+          %p<
+            トレジャーガーディアン: 
+            %b<>
+              #{$m["guard"]} 
+          %p<
+            備考: 
+            %b<>
+              #{$m["info"]} 
     #footer
+      #credits
+        %p 
+          %a{href:"http://moewiki.usamimi.info/"}
+            MoEwiki
+          のデータを元に作成しています。
       #about_me
         %table#link<
           %tr

@@ -17,7 +17,18 @@ helpers do
   def make_res_hash ary
     ks = [ "num" , "area", "rank", "skill"]
     m = Hash.new() 
-    $res[0].each_with_index do |v,idx|
+    ary[0].each_with_index do |v,idx|
+      if v == "" then
+          v = "不明"
+      end
+      m[ks[idx]] = v
+    end
+    return m
+  end
+  def make_ans_hash ary
+    ks = [ "num" , "area_num", "pos", "guard", "info"]
+    m = Hash.new() 
+    ary[0].each_with_index do |v,idx|
       if v == "" then
           v = "不明"
       end
@@ -28,6 +39,7 @@ helpers do
 end
 
 get '/'do
+# エラー時
   if $err_flag then
     $err_flag = false
     begin
@@ -38,18 +50,34 @@ get '/'do
       $err_flag = true
     end
     haml :error
+# 正常系
   else 
-    $num = params['num']
-    $res = $map_searcher.search_num $num
-    unless $res.empty? then
-      $m =make_res_hash $res
+    $num = $anum = nil
+    $area_list = $map_searcher.get_area_list
+    $res = []
+    $ans = []
+    if params['type'] == "a"
+      name = $map_searcher.get_area_list[params['area'].to_i]
+      num = params['anum'].to_i
+      p name,num
+      $ans = $map_searcher.search_ans name, num
+      $anum = name+sprintf("%02d",num)
+      unless $ans.empty? then
+        $m =make_ans_hash $ans
+      end
+    else 
+      $num = params['num']
+      $res = $map_searcher.search_num $num
+      unless $res.empty? then
+        $m =make_res_hash $res
+      end
     end
+    p $m
     haml :result
   end
 end
 
 post '/'do
-  p params['number']
   if params['number'] == "" then
     redirect "/"
   else
@@ -57,3 +85,10 @@ post '/'do
     redirect "/?num=#{n}"
   end
 end
+
+post '/answer' do
+  aname = params['answer_area'] 
+  anum  = params['answer_number'] 
+  redirect "/?type=a&area=#{aname}&anum=#{anum}"
+end
+

@@ -70,12 +70,24 @@ div#about_me{
   text-decoration:none;
   text-align:right;  
 }
+div#credits{
+  margin:20px 0px 7px; 
+  float: left;
+  padding:7px;   
+  display:block;
+  text-decoration:none;
+  text-align:right;  
+}
 div#form_space{
   margin:7px; 
   padding:7px;   
 }
-div#result_space{
+div#answer_space{
   margin:7px; 
+  padding:7px;
+}
+div#result_space{
+  margin:7px;
   padding:7px;
 }
 
