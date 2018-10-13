@@ -62,7 +62,15 @@ class TreasureMapList
         if th_name.to_i == 0 then
           next
         end
-        treasure_data = tr.search('.//td')[0..3].map{|td| td.text}
+        treasure_data = tr.search('.//td')[0..3].map.with_index{|td,idx|
+## wiki上の表記ブレを吸収
+          if idx == 0 then 
+            fixed_text = td.text.gsub(/レクスールヒルズ/,"レクスール・ヒルズ")
+            fixed_text
+          else
+            td.text
+          end
+        }
         treasure_data.unshift(th_name)
         @treasure_answer_list << treasure_data
       end
