@@ -95,6 +95,6 @@ class TreasureMapList
 end
 
 
-td = TreasureMapList.new()
-#p td.echo[1].select{|d| d[1]}
-p td.echo[1][5]
+#td = TreasureMapList.new()
+##p td.echo[1].select{|d| d[1]}
+#p td.echo[1][5]

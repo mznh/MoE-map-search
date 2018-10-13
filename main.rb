@@ -59,8 +59,10 @@ get '/'do
     if params['type'] == "a"
       begin
         name = $map_searcher.get_area_list[params['area'].to_i]
+        if params["anum"].length >5 then
+          raise "The num of digits is out of range."
+        end
         num = params['anum'].to_i
-        p name,num
         $ans = $map_searcher.search_ans name, num
         $anum = name+sprintf("%02d",num)
         unless $ans.empty? then
@@ -71,10 +73,15 @@ get '/'do
         #現状はスルー
       end
     else 
-      $num = params['num']
-      $res = $map_searcher.search_num $num
-      unless $res.empty? then
-        $m =make_res_hash $res
+      if params["num"].length >5 then
+        ##?num=hoge でありえない値を入れられたときの対処
+        #現状はスルー
+      else
+        $num = params['num']
+        $res = $map_searcher.search_num $num
+        unless $res.empty? then
+          $m =make_res_hash $res
+        end
       end
     end
     p $m
@@ -92,8 +99,8 @@ post '/'do
 end
 
 post '/answer' do
-  aname = params['answer_area'] 
-  anum  = params['answer_number'] 
+  aname = params['answer_area'].to_i 
+  anum  = params['answer_number'].to_i 
   redirect "/?type=a&area=#{aname}&anum=#{anum}"
 end
 
