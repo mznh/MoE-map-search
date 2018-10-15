@@ -72,6 +72,9 @@ div.result_space{
   padding:0px;
 }
 
+.known_issues {
+  margin:100px 0px 0px;
+}
 .known_issues > h2{
   font-size:16px;
 }
@@ -86,7 +89,7 @@ div.credits{
 }
 div.about_me{
   display: inline;
-  margin:20px 0px 7px; 
+  margin:20px 10px 7px; 
   text-decoration:none;
   text-align:right;  
 }
@@ -96,7 +99,7 @@ p.notes{
 }
 
 table.link{
-  display: inline-block;
+  /*display: inline-block;*/
   text-align:left;
   border:1px;
 }

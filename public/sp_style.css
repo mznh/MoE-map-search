@@ -30,10 +30,10 @@ main{
 footer{
 }
 div.predecipher{
-  margin:4px;
+  margin:10px;
 }
 div.deciphered{
-  margin:4px;
+  margin:10px;
 }
 div.form_space{
   width:100%;
@@ -60,7 +60,9 @@ input, select{
   font-size:24px;
   overflow: hidden;
 }
-
+input{
+  max-width: 100%;
+}
 
 input.submit{
   width: 100%;
@@ -78,6 +80,9 @@ img{
   width:100%
 }
 
+div.known_issues {
+  margin: 30px 0px;
+}
 .known_issues > h2{
   font-size:16px;
 }
