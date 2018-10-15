@@ -70,6 +70,7 @@ input, select{
   display: inline;
   position: relative;
   border: 1px solid #ccc;
+  background-color:#FFFFFF;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
