@@ -22,7 +22,10 @@
       %h1 MoE 古びた地図検索機
     %main
       .predecipher
-        %h2 解読前
+        .type_title
+          %img{src:"./predecipher.png"}
+          %h2
+            解読前
         .form_space
           %p 例 古びた地図001 等の詳細はこちら
           %form{action:"/",method:"post"}
@@ -54,7 +57,10 @@
                   #{$m["skill"]} 
                 です。
       .deciphered
-        %h2 解読済
+        .type_title
+          %img{src:"./deciphered.png"}
+          %h2
+            解読済
         .form_space
           %p 例 ミーリム海岸01 等の詳細はこちら
           %form{action:"/answer",method:"post"}
@@ -106,7 +112,10 @@
             MoEwiki
           のデータを元に作成しています。
         %p.notes
-          (C)Willoo Entertainment Inc. (C)Konami Digital Entertainment
+          %span<>
+            (C)Willoo Entertainment Inc.
+          %span<>
+            (C)Konami Digital Entertainment
           %br
           株式会社ウィローエンターテイメント及び株式会社コナミデジタルエンタテインメントの著作権を侵害する行為は禁止されています。
         %a{href:"http://moepic.com/"}
