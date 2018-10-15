@@ -7,8 +7,8 @@
 *{
   margin:0px; padding:0px;
   line-height:1.5;  
-  background-color:.FFFFFF;  /*ページ全体の背景色*/
-  color:.000000;  
+  background-color:#FFFFFF;  /*ページ全体の背景色*/
+  color:#000000;  
   font-family:'arial','sans-serif';
   text-align:left;
 } 
