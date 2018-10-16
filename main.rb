@@ -6,6 +6,7 @@ require 'haml'
 require './search_map.rb'
 
 configure do
+  #立ち上げ時にMoEwikiが落ちていたときのエラー処理
   $err_flag = false
   begin
     $map_searcher = TreasureMapList.new({timeout:3})
@@ -41,18 +42,22 @@ end
 
 get '/'do
 # エラー時
+  #MoEwikiのデータが取得できていないときのエラー処理
   if $err_flag then
     $err_flag = false
     begin
       p "get wiki data"
-      $map_searcher = TreasureMapList.new({timeout:0.4})
+      $map_searcher = TreasureMapList.new({timeout:3})
+      $num = $anum = nil
+      $area_list = $map_searcher.get_area_list
+      haml :result
     rescue => er
-      p er
+      p "error : when retry",er
       $err_flag = true
+      haml :error
     end
-    haml :error
+  else
 # 正常系
-  else 
     $num = $anum = nil
     $area_list = $map_searcher.get_area_list
     $res = []
