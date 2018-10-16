@@ -64,17 +64,20 @@
         .form_space
           %p 例 ミーリム海岸01 等の詳細はこちら
           %form{action:"/answer",method:"post"}
-            %select{name:"answer_area"}
-              - $area_list.each_with_index do |an,idx|
-                - if idx == 17 then
-                  %option{value:"#{idx}",selected:""}> #{an}
-                - else
-                  %option{value:"#{idx}"}> #{an}
+            .select_style
+              %select{name:"answer_area"}
+                - $area_list.each_with_index do |an,idx|
+                  - if idx == 17 then
+                    %option{value:"#{idx}",selected:""}> #{an}
+                  - else
+                    %option{value:"#{idx}"}> #{an}
             %input{type:"tel",name:"answer_number",placeholder:"01"}
             %input.submit{type:"submit",value:"検索"}
         .result_space
           - if $anum.nil? then
-            %p 地図の番号を入力してください。 
+            %p 
+              %span 地図のエリア名を選択し、
+              %span 番号を入力してください。 
           - elsif $ans.empty? then
             %p 古びた地図#{$anum}番は存在しません
           - else 
@@ -105,6 +108,11 @@
       .known_issues
         %h2 既知のバグ
         %p リスティル等のQoAの地図の検索に対応していない。
+        %p 
+          バグ報告や要望などは
+          %a{href:"https://twitter.com/mznh"}
+            @mznh
+          までどうぞ。
     %footer
       .credits
         %p 

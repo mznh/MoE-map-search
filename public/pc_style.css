@@ -65,6 +65,9 @@ div.form_space{
   padding:0px;
 }
 
+div.select_style{
+  display:inline;
+}
 
 input, select{
   display: inline;
