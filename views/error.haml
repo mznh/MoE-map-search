@@ -7,19 +7,33 @@
     %meta{charset:"utf-8"}
     %meta{name:"viewport",content:"width=device-width,initial-scale=1"}
     %meta{"http-equiv":"X-UA-Compatible",CONTENT:"IE=EmulateIE9"}
-    %link{rel:"stylesheet",type:"text/css",href:"./style.css"}
+    %link{rel:"stylesheet",media:"(min-width: 480px)",type:"text/css",href:"./pc_style.css"}
+    %link{rel:"stylesheet",media:"(max-width: 480px)",type:"text/css",href:"./sp_style.css"}
+    %link{rel:"icon",type:"image/png",href:"./favicon.png",size:"40x40"}
   %body
-    #header
+    %header
       %h1 MoE 古びた地図検索機
-    #main
+    %main
       %p 
         エラー発生中！ 
         %a{href:"http://moewiki.usamimi.info/"}
           MoEWiki
         が落ちてるかも…？
-    #footer
-      #about_me
-        %table#link<
+    %footer
+      .credits
+        %p 
+          %a{href:"http://moewiki.usamimi.info/"}
+            MoEwiki
+          のデータを元に作成しています。
+        %p.notes
+          (C)Willoo Entertainment Inc. (C)Konami Digital Entertainment
+          %br
+          株式会社ウィローエンターテイメント及び株式会社コナミデジタルエンタテインメントの著作権を侵害する行為は禁止されています。
+        %a{href:"http://moepic.com/"}
+          %img{src:"./moe_banner.gif",alt:"MoE_banner"}
+          
+      .about_me
+        %table.link<
           %tr
             %td<>
               %h4<>
@@ -36,5 +50,3 @@
             %td<>
               %a{href:"http://mznh.jp"}<
                 mznh.jp
-
-
