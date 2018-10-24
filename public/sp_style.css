@@ -126,7 +126,11 @@ img{
 }
 
 div.known_issues {
-  margin: 30px 0px;
+  margin: 30px 10px;
+}
+
+div.tweet_button {
+  margin:10px;
 }
 .known_issues > h2{
   font-size:16px;
