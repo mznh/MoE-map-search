@@ -18,7 +18,7 @@ end
 helpers do
   def make_res_hash ary
     ks = [ "num" , "area", "rank", "skill"]
-    m = Hash.new() 
+    m = Hash.new()
     ary[0].each_with_index do |v,idx|
       if v == "" then
           v = "不明"
