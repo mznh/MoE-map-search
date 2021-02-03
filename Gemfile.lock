@@ -5,11 +5,13 @@ GEM
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.10.8)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.0)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    racc (1.5.2)
     rack (2.1.4)
     rack-protection (2.0.8.1)
       rack
