@@ -8,7 +8,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem "rack", ">= 2.0.8"
 gem "nokogiri", ">= 1.10.4"
-gem 'sinatra', '~> 2.0.2'
+gem 'sinatra', '~> 2.2.3'
 gem 'haml'
 gem 'rails_12factor', group: :production
 
