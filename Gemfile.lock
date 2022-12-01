@@ -6,28 +6,28 @@ GEM
       temple (>= 0.8.0)
       tilt
     mini_portile2 (2.8.0)
-    mustermann (1.1.1)
+    mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.13.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     racc (1.6.0)
-    rack (2.1.4)
-    rack-protection (2.0.8.1)
+    rack (2.2.4)
+    rack-protection (2.2.3)
       rack
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
-    ruby2_keywords (0.0.2)
-    sinatra (2.0.8.1)
-      mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.8.1)
+    ruby2_keywords (0.0.5)
+    sinatra (2.2.3)
+      mustermann (~> 2.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.3)
       tilt (~> 2.0)
     temple (0.8.2)
-    tilt (2.0.10)
+    tilt (2.0.11)
 
 PLATFORMS
   ruby
@@ -38,7 +38,7 @@ DEPENDENCIES
   nokogiri (>= 1.10.4)
   rack (>= 2.0.8)
   rails_12factor
-  sinatra (~> 2.0.2)
+  sinatra (~> 2.2.3)
 
 RUBY VERSION
    ruby 2.7.2p137
